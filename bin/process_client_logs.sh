@@ -1,4 +1,13 @@
 #!/bin/bash
+
+#This script opens the given directory and
+#goes into the files var/log to access the
+#log files. Then searches all files for the
+#string "Failed password" and removes the string
+#"invalid user". After that it removes the 
+#digits after the colons and stores the wanted data
+#in the given directory into `failed_login_data.txt`
+
 directory="$1"
 
 cd $directory/var/log
