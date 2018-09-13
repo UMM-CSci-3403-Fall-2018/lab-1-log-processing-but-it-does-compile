@@ -12,10 +12,10 @@ cd $log_directory
 find -type f -name 'failed_login_data.txt' -exec cat {} >> temp.txt \;
 
 # Prints the username column from temp, sorts and counts the resulting names
-awk '{print $4}' temp.txt | sort | uniq -c \
+awk '{print $4}' temp.txt | sort | uniq -c |
 
 	# Wraps the names and counts into google chart addRow syntax	
-	| awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' > temp2.txt
+awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' > temp2.txt
 
 rm temp.txt
 cd $here
